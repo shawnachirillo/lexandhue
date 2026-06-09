@@ -41,10 +41,32 @@ export default function Home() {
       <Hero activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
       {/* PROBLEM */}
-      <section className="bg-[#090706] px-6 py-24 text-[#f4ede3] md:px-10 lg:px-16">
+      <section className="bg-[#ffffff] px-6 py-24 text-[#090706] md:px-10 lg:px-16">
         <div className="section-frame grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <p className="text-xs uppercase tracking-[0.3em] text-[#d97a4a]">
-            The Problem
+           
+            <div className="relative">
+  <p className="mb-8 text-[2rem] uppercase tracking-[.3em] text-[#d97a4a]">
+    The Problem
+  </p>
+
+  <div
+    className="
+      font-editorial
+      pointer-events-none
+      select-none
+      text-[8rem]
+      leading-none
+      tracking-[-0.0em]
+      text-transparent
+      [-webkit-text-stroke:1px_rgba(217,122,74,0.25)]
+    "
+  >
+    DIS
+    <br />
+    CONNECT
+  </div>
+</div>
           </p>
 
           <div>
@@ -53,7 +75,7 @@ export default function Home() {
               feel connected.
             </h2>
 
-            <div className="mt-8 max-w-3xl space-y-6 text-sm leading-7 text-[#f4ede3]/70 md:text-base md:leading-8">
+            <div className="mt-8 max-w-3xl space-y-6 text-sm leading-7 text-[#090706]/70 md:text-base md:leading-8">
               <p>
                 For some, the business has evolved beyond the brand they started
                 with. For others, the challenge is building a clear foundation
@@ -66,7 +88,7 @@ export default function Home() {
                 cohesive system yet.
               </p>
 
-              <p className="text-[#f4ede3]">
+              <p className="text-[#090706]">
                 What once felt good enough — or never fully came together in the
                 first place — now creates friction.
               </p>

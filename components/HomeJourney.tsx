@@ -70,55 +70,54 @@ export default function HomeJourney() {
         </div>
       </section>
 
-      {/* PROBLEM */}
-      <section className="border-y border-[#d8cfc2]/30 px-6 py-24 md:px-10 lg:px-16">
-        <div className="section-frame grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#d97a4a]">
-            The Problem
-          </p>
+ {/* PROBLEM */}
+<section className="bg-[#f4ede3] px-6 py-24 text-black md:px-10 lg:px-16">
+  <div className="section-frame mx-auto grid max-w-7xl gap-16 lg:grid-cols-[420px_1fr] lg:items-start">
+    <div className="min-w-0">
+      <p className="mb-10 text-xs uppercase tracking-[0.3em] text-[#d97a4a]">
+        The Problem
+      </p>
 
-          <div>
-            <h2 className="font-editorial text-4xl leading-tight md:text-6xl">
-              Growing businesses often reach a point where things no longer
-              feel connected.
-            </h2>
+      <blockquote className="font-editorial max-w-[360px] text-5xl leading-[0.88] tracking-[-0.05em] text-black md:text-6xl">
+        What once
+        <br />
+        felt good
+        <br />
+        enough
+        <br />
+        now creates
+        <br />
+        <span className="italic text-[#d97a4a]">friction.</span>
+      </blockquote>
+    </div>
 
-            <div className="mt-8 max-w-3xl space-y-6 text-base leading-8 text-[#f4ede3]/70">
-              <p>
-                For some, the business has evolved beyond the brand they started
-                with. For others, the challenge is building a clear foundation
-                from the beginning.
-              </p>
+    <div className="min-w-0">
+      <h2 className="font-editorial max-w-4xl text-5xl leading-[0.9] tracking-[-0.04em] md:text-7xl">
+        Growing businesses often reach a point where things no longer feel
+        connected.
+      </h2>
 
-              <p>
-                The messaging feels inconsistent. The visual identity no longer
-                reflects the quality of the work. Or there simply isn’t a
-                cohesive system yet.
-              </p>
+      <div className="mt-10 max-w-3xl space-y-6 text-base leading-8 text-black/65">
+        <p>
+          For some, the business has evolved beyond the brand they started
+          with. For others, the challenge is building a clear foundation from
+          the beginning.
+        </p>
 
-              <p className="text-[#f4ede3]">
-                What once felt good enough — or never fully came together in the
-                first place — now creates friction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <p>
+          The messaging feels inconsistent. The visual identity no longer
+          reflects the quality of the work. Or there simply isn’t a cohesive
+          system yet.
+        </p>
 
-      {/* SOLUTION */}
-      <section className="px-6 py-24 md:px-10 lg:px-16">
-        <div className="section-frame grid gap-12 lg:grid-cols-2 lg:items-end">
-          <h2 className="font-editorial text-5xl leading-[0.95] md:text-7xl">
-            We bring strategy, brand, and digital experience into alignment.
-          </h2>
-
-          <p className="max-w-xl text-base leading-8 text-[#f4ede3]/70">
-            Lex & Hue creates thoughtful systems that feel intentional,
-            cohesive, and built for growth. The goal isn’t just a better-looking
-            brand. It’s a clearer business presence.
-          </p>
-        </div>
-      </section>
+        <p className="text-black">
+          What once felt good enough — or never fully came together in the first
+          place — now creates friction.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* SERVICES */}
       <section className="px-6 pb-24 md:px-10 lg:px-16">
