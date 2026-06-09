@@ -2,37 +2,37 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ServicesPreview from "@/components/ServicesPreview";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { caseStudies } from "@/data/site";
 import { useState } from "react";
 
-const processSteps = [
+const journeyItems = [
   {
-    number: "01",
-    title: "Discover",
-    text: "We learn the business, audience, goals, and friction points before making design decisions.",
+    label: "The Problem",
+    title: "What once felt good enough now creates friction.",
+    text: "The messaging feels inconsistent. The visual identity no longer reflects the quality of the work. Or there simply isn’t a cohesive system yet.",
   },
   {
-    number: "02",
-    title: "Define",
-    text: "We clarify positioning, messaging, priorities, and the direction the brand needs to move in.",
+    label: "The Shift",
+    title: "A stronger business needs a clearer system.",
+    text: "When the brand, website, and message stop working together, the business starts to feel harder to explain, harder to trust, and harder to grow.",
   },
   {
-    number: "03",
-    title: "Design",
-    text: "We translate the strategy into identity, layout, visuals, and digital experience.",
+    label: "How We Work",
+    title: "Thoughtful work starts with understanding.",
+    text: "We discover, define, design, and launch with strategy first — so the creative direction has a reason behind it.",
   },
   {
-    number: "04",
-    title: "Launch",
-    text: "We refine, prepare, and support the work as it moves into the world.",
+    label: "Services",
+    title: "Brand, website, and strategy support.",
+    text: "Identity systems, strategic websites, positioning, messaging, and creative direction for businesses ready to move with more clarity.",
   },
 ];
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeJourney, setActiveJourney] = useState<number | null>(null);
 
   return (
     <main className="site-shell min-h-screen bg-[#090706] text-[#f4ede3]">
@@ -40,117 +40,83 @@ export default function Home() {
 
       <Hero activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
-      {/* PROBLEM */}
-      <section className="bg-[#ffffff] px-6 py-24 text-[#090706] md:px-10 lg:px-16">
-        <div className="section-frame grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#d97a4a]">
-           
-            <div className="relative">
-  <p className="mb-8 text-[2rem] uppercase tracking-[.3em] text-[#d97a4a]">
-    The Problem
-  </p>
+      {/* JOURNEY INTRO */}
+<section className="bg-[#00000] px-6 py-24 text-[#fffff] md:px-10 lg:px-16">
+  <div className="section-frame mx-auto max-w-7xl">
+    <h2 className="font-editorial max-w-5xl text-5xl leading-[0.92] tracking-[-0.04em] md:text-7xl">
+      Growing businesses often reach a point where things no longer feel
+      connected. <span className="text-[#fffff]">Why is that?</span>
+    </h2>
 
-  <div
-    className="
-      font-editorial
-      pointer-events-none
-      select-none
-      text-[8rem]
-      leading-none
-      tracking-[-0.0em]
-      text-transparent
-      [-webkit-text-stroke:1px_rgba(217,122,74,0.25)]
-    "
-  >
-    DIS
-    <br />
-    CONNECT
-  </div>
-</div>
-          </p>
+    <div className="mt-20 border-y border-[#fffff]/20">
+      {journeyItems.map((item, index) => {
+        const isActive = activeJourney === index;
 
-          <div>
-            <h2 className="font-editorial text-4xl leading-[1.02] md:text-6xl">
-              Growing businesses often reach a point where things no longer
-              feel connected.
-            </h2>
+        return (
+          <div key={item.label} className="border-b border-[#fffff]/20 last:border-b-0">
+            <button
+              type="button"
+              onClick={() => setActiveJourney(isActive ? null : index)}
+              className="flex w-full items-center justify-between py-7 text-left"
+            >
+              <span className="text-xs uppercase tracking-[0.3em] text-[#fffff] md:text-sm">
+                {item.label}
+              </span>
 
-            <div className="mt-8 max-w-3xl space-y-6 text-sm leading-7 text-[#090706]/70 md:text-base md:leading-8">
-              <p>
-                For some, the business has evolved beyond the brand they started
-                with. For others, the challenge is building a clear foundation
-                from the beginning.
-              </p>
+              <span className="font-editorial text-4xl leading-none text-[#fffff]/60">
+                {isActive ? "—" : "+"}
+              </span>
+            </button>
 
-              <p>
-                The messaging feels inconsistent. The visual identity no longer
-                reflects the quality of the work. Or there simply isn’t a
-                cohesive system yet.
-              </p>
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-out ${
+                isActive ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="grid gap-12 bg-[#f4ede3] px-0 py-16 text-[#fffff] md:grid-cols-[0.8fr_1.2fr]">
+                <div>
+                  <p className="mb-8 text-xs uppercase tracking-[0.3em] text-[#fffff]">
+                    {item.label}
+                  </p>
 
-              <p className="text-[#090706]">
-                What once felt good enough — or never fully came together in the
-                first place — now creates friction.
-              </p>
+                  <div
+                    className="
+                      font-editorial
+                      pointer-events-none
+                      select-none
+                      text-[7rem]
+                      leading-none
+                      tracking-[-0.04em]
+                      text-transparent
+                      [-webkit-text-stroke:1px_#0000001A]
+                    "
+                  >
+                    DIS
+                    <br />
+                    CONNECT
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-editorial max-w-3xl text-4xl leading-[1.02] tracking-[-0.04em] md:text-6xl">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-8 max-w-2xl text-sm leading-7 text-[#090706]/70 md:text-base md:leading-8">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* SOLUTION */}
-      <section className="bg-[#090706]px-6 py-24 text-[#f4ede3] md:px-10 lg:px-16">
-        <div className="section-frame grid gap-12 lg:grid-cols-2 lg:items-end">
-          <h2 className="font-editorial text-5xl leading-[0.95] md:text-7xl">
-            Strategy, brand, and digital experience should work together.
-          </h2>
-
-          <p className="max-w-xl text-sm leading-7 text-[#f4ede3]/70 md:text-base md:leading-8">
-            Lex &amp; Hue helps businesses bring these pieces into alignment,
-            creating thoughtful systems that feel intentional, cohesive, and
-            built for growth. The goal isn’t just a better-looking brand. It’s a
-            clearer business presence.
-          </p>
-        </div>
-      </section>
-
-      <ServicesPreview activeIndex={activeIndex} />
-
-      {/* PROCESS */}
-      <section className="bg-[#f4ede3] px-6 py-24 text-[#0d0d0c] md:px-10 lg:px-16">
-        <div className="section-frame">
-          <div className="mb-14 max-w-3xl">
-            <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#9b4f2e]">
-              How We Work
-            </p>
-
-            <h2 className="font-editorial text-5xl leading-[0.95] md:text-7xl">
-              Thoughtful work starts with understanding.
-            </h2>
-          </div>
-
-          <div className="grid border-l border-t border-black/25 md:grid-cols-4">
-            {processSteps.map((step) => (
-              <article
-                key={step.number}
-                className="min-h-[300px] border-b border-r border-black/25 p-6"
-              >
-                <p className="text-sm text-black/45">{step.number}</p>
-
-                <h3 className="font-editorial mt-20 text-3xl">
-                  {step.title}
-                </h3>
-
-                <p className="mt-5 text-sm leading-7 text-black/65">
-                  {step.text}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </div>
+</section>
 
       {/* SELECTED WORK */}
-      <section className="bg-[#090706]px-6 py-24 text-[#f4ede3] md:px-10 lg:px-16">
+      <section className="bg-[#090706] px-6 py-24 text-[#f4ede3] md:px-10 lg:px-16">
         <div className="section-frame">
           <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
