@@ -24,13 +24,13 @@ const journeyItems = [
     label: "How We Work",
     title: "Thoughtful work starts with understanding.",
     word: ["PROCESS"],
-    text: ["Every project begins with understanding.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow.", "Before visuals, before layouts, before development, we identify what matters most: who you're serving, what makes you different, and where friction is preventing growth.", "From there, we create the systems, messaging, and experiences needed to bring everything into alignment."],
+    text: ["Every project begins with understanding.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow. Before visuals, before layouts, before development, we identify what matters most: who you're serving, what makes you different, and where friction is preventing growth.", "From there, we create the systems, messaging, and experiences needed to bring everything into alignment."],
   },
   {
     label: "Services",
     title: "Brand, website, and strategy support.",
     word: ["BUILD"],
-    text: ["Growth doesn't require more noise. It requires alignment.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow.", "Marketing feels inconsistent because the foundation underneath it has become fragmented.", "The goal is not simply to look better. The goal is to create a foundation that supports better decisions, stronger positioning, and greater momentum."],
+    text: ["Some businesses need strategic clarity. Others need a stronger identity. Others need a website that finally reflects the quality of the work being delivered.", "Our services are designed to solve the underlying problem and not just simply produce deliverables.", "Brand strategy, identity systems, websites, messaging, and creative direction all work together to create a more cohesive business presence."],
   },
 ];
 
@@ -133,19 +133,19 @@ export default function Home() {
           <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="mb-4 text-sm uppercase tracking-[0.25em] text-[#d97a4a]">
-                Selected work
+                {/* Featured work */}
               </p>
 
-              <h2 className="font-editorial text-4xl leading-[1.02] md:text-6xl">
-                Strategy made
+              <h2 className="font-editorial text-4xl text-[#d97a4a] leading-[1.02] md:text-6xl">
+                Featured 
                 <br />
-                visible.
+                Work
               </h2>
             </div>
 
             <p className="max-w-xl text-sm leading-7 text-[#f4ede3]/70 md:text-base">
-              Brand systems, digital experiences, and product concepts shaped
-              with strategy, restraint, and stronger creative direction.
+              {/* Brand systems, digital experiences, and product concepts shaped
+              with strategy, restraint, and stronger creative direction. */}
             </p>
           </div>
 
