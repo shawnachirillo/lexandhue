@@ -12,25 +12,25 @@ const journeyItems = [
     label: "The Problem",
     title: "What once felt good enough now creates friction.",
     word: ["DIS", "CONNECT"],
-    text: "The messaging feels inconsistent. The visual identity no longer reflects the quality of the work. Or there simply isn’t a cohesive system yet.",
+    text: ["Businesses rarely struggle because they lack talent, expertise, or ambition. More often, growth creates a different problem. The website no longer reflects the quality of the work. The messaging has evolved in multiple directions. New services have been added without a clear structure. Marketing feels inconsistent because the foundation underneath it has become fragmented.", "", "What was once enough to get started becomes harder to scale. Decisions take longer. Opportunities are missed. Potential clients leave with questions instead of clarity."],
   },
   {
     label: "The Shift",
     title: "A stronger business needs a clearer system.",
     word: ["RE", "ALIGN"],
-    text: "When the brand, website, and message stop working together, the business starts to feel harder to explain, harder to trust, and harder to grow.",
+    text:["Growth doesn't require more noise. It requires alignment.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow.Marketing feels inconsistent because the foundation underneath it has become fragmented.", "The goal is not simply to look better. The goal is to create a foundation that supports better decisions, stronger positioning, and greater momentum."],
   },
   {
     label: "How We Work",
     title: "Thoughtful work starts with understanding.",
     word: ["PROCESS"],
-    text: "We discover, define, design, and launch with strategy first — so the creative direction has a reason behind it.",
+    text: ["Every project begins with understanding.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow.", "Before visuals, before layouts, before development, we identify what matters most: who you're serving, what makes you different, and where friction is preventing growth.", "From there, we create the systems, messaging, and experiences needed to bring everything into alignment."],
   },
   {
     label: "Services",
     title: "Brand, website, and strategy support.",
     word: ["BUILD"],
-    text: "Identity systems, strategic websites, positioning, messaging, and creative direction for businesses ready to move with more clarity.",
+    text: ["Growth doesn't require more noise. It requires alignment.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow.", "Marketing feels inconsistent because the foundation underneath it has become fragmented.", "The goal is not simply to look better. The goal is to create a foundation that supports better decisions, stronger positioning, and greater momentum."],
   },
 ];
 
@@ -107,10 +107,17 @@ export default function Home() {
                           {item.title}
                         </h3>
 
-                        <p className="mt-8 max-w-2xl text-sm leading-7 text-[#000000]/70 md:text-base md:leading-8">
-                          {item.text}
-                        </p>
-                      </div>
+                       <div className="mt-6 space-y-6">
+  {item.text.map((paragraph, i) => (
+    <p
+      key={i}
+      className="text-base leading-10 text-[#090706]/70"
+    >
+      {paragraph}
+    </p>
+  ))}
+</div>
+</div>
                     </div>
                   </div>
                 </div>
