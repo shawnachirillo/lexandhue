@@ -11,21 +11,25 @@ const journeyItems = [
   {
     label: "The Problem",
     title: "What once felt good enough now creates friction.",
+    word: ["DIS", "CONNECT"],
     text: "The messaging feels inconsistent. The visual identity no longer reflects the quality of the work. Or there simply isn’t a cohesive system yet.",
   },
   {
     label: "The Shift",
     title: "A stronger business needs a clearer system.",
+    word: ["RE", "ALIGN"],
     text: "When the brand, website, and message stop working together, the business starts to feel harder to explain, harder to trust, and harder to grow.",
   },
   {
     label: "How We Work",
     title: "Thoughtful work starts with understanding.",
+    word: ["PROCESS"],
     text: "We discover, define, design, and launch with strategy first — so the creative direction has a reason behind it.",
   },
   {
     label: "Services",
     title: "Brand, website, and strategy support.",
+    word: ["BUILD"],
     text: "Identity systems, strategic websites, positioning, messaging, and creative direction for businesses ready to move with more clarity.",
   },
 ];
@@ -41,79 +45,80 @@ export default function Home() {
       <Hero activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
       {/* JOURNEY INTRO */}
-<section className="bg-[#00000] px-6 py-24 text-[#fffff] md:px-10 lg:px-16">
-  <div className="section-frame mx-auto max-w-7xl">
-    <h2 className="font-editorial max-w-5xl text-5xl leading-[0.92] tracking-[-0.04em] md:text-7xl">
-      Growing businesses often reach a point where things no longer feel
-      connected. <span className="text-[#fffff]">Why is that?</span>
-    </h2>
+      <section className="bg-[#00000] px-6 py-24 text-[#fffff] md:px-10 lg:px-16">
+        <div className="section-frame mx-auto max-w-7xl">
+          <h2 className="font-editorial max-w-5xl text-5xl leading-[0.92] tracking-[-0.04em] md:text-7xl">
+            Growing businesses often reach a point where things no longer feel
+            connected. <span className="text-[#fffff]">Why is that?</span>
+          </h2>
 
-    <div className="mt-20 border-y border-[#fffff]/20">
-      {journeyItems.map((item, index) => {
-        const isActive = activeJourney === index;
+          <div className="mt-20 border-y border-[#fffff]/20">
+            {journeyItems.map((item, index) => {
+              const isActive = activeJourney === index;
 
-        return (
-          <div key={item.label} className="border-b border-[#fffff]/20 last:border-b-0">
-            <button
-              type="button"
-              onClick={() => setActiveJourney(isActive ? null : index)}
-              className="flex w-full items-center justify-between py-7 text-left"
-            >
-              <span className="text-xs uppercase tracking-[0.3em] text-[#fffff] md:text-sm">
-                {item.label}
-              </span>
+              return (
+                <div key={item.label} className="border-b border-[#fffff]/20 last:border-b-0">
+                  <button
+                    type="button"
+                    onClick={() => setActiveJourney(isActive ? null : index)}
+                    className="flex w-full items-center justify-between py-7 text-left"
+                  >
+                    <span className="text-xs uppercase tracking-[0.3em] text-[#fffff] md:text-sm">
+                      {item.label}
+                    </span>
 
-              <span className="font-editorial text-4xl leading-none text-[#fffff]/60">
-                {isActive ? "—" : "+"}
-              </span>
-            </button>
-
-            <div
-              className={`overflow-hidden transition-all duration-500 ease-out ${
-                isActive ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
-              }`}
-            >
-              <div className="grid gap-12 bg-[#f4ede3] px-0 py-16 text-[#fffff] md:grid-cols-[0.8fr_1.2fr]">
-                <div>
-                  <p className="mb-8 text-xs uppercase tracking-[0.3em] text-[#fffff]">
-                    {item.label}
-                  </p>
+                    <span className="font-editorial text-4xl leading-none text-[#fffff]/60">
+                      {isActive ? "—" : "+"}
+                    </span>
+                  </button>
 
                   <div
-                    className="
-                      font-editorial
-                      pointer-events-none
-                      select-none
-                      text-[7rem]
-                      leading-none
-                      tracking-[-0.04em]
-                      text-transparent
-                      [-webkit-text-stroke:1px_#0000001A]
-                    "
+                    className={`overflow-hidden transition-all duration-500 ease-out ${isActive ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
+                      }`}
                   >
-                    DIS
-                    <br />
-                    CONNECT
+                    <div className="grid gap-12 bg-[#f4ede3] px-0 py-16 text-[#fffff] md:grid-cols-[0.8fr_1.2fr]">
+                      <div>
+                        <p className="mb-8 text-xs uppercase tracking-[0.3em] text-[#fffff]">
+                          {item.label}
+                        </p>
+
+                        <div
+                          className="
+                  font-editorial
+                  pointer-events-none
+                  select-none
+                  text-[7rem]
+                  leading-none
+                  tracking-[-0.04em]
+                  text-transparent
+                  [-webkit-text-stroke:1px_#00000036]
+                "
+                        >
+                          {item.word.map((line) => (
+                            <span key={line} className="block">
+                              {line}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="font-editorial max-w-3xl text-4xl leading-[1.02] tracking-[-0.04em] text-[#090706] md:text-6xl">
+                          {item.title}
+                        </h3>
+
+                        <p className="mt-8 max-w-2xl text-sm leading-7 text-[#000000]/70 md:text-base md:leading-8">
+                          {item.text}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-
-                <div>
-                  <h3 className="font-editorial max-w-3xl text-4xl leading-[1.02] tracking-[-0.04em] md:text-6xl">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-8 max-w-2xl text-sm leading-7 text-[#090706]/70 md:text-base md:leading-8">
-                    {item.text}
-                  </p>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
-        );
-      })}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* SELECTED WORK */}
       <section className="bg-[#090706] px-6 py-24 text-[#f4ede3] md:px-10 lg:px-16">
