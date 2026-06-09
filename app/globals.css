@@ -1,26 +1,58 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: #000;
+  color: #f4ede3;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-editorial {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.site-shell {
+  background:
+    radial-gradient(circle at 79% 24%, rgba(217, 122, 74, 0.18), transparent 18%),
+    radial-gradient(circle at 71% 61%, rgba(45, 102, 43, 0.14), transparent 14%),
+    #000;
+}
+
+.section-frame {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.border-soft {
+  border-color: rgba(216, 207, 194, 0.2);
+}
+
+.text-warm {
+  color: #f4ede3;
+}
+
+.text-accent {
+  color: #d97a4a;
+}
+
+.bg-accent {
+  background-color: #d97a4a;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  min-width: max-content;
+  animation: marquee 18s linear infinite;
 }
