@@ -78,7 +78,7 @@ function FallingWord({ word }: { word: string }) {
 
 export default function ProblemAccordion() {
   const [openIndex, setOpenIndex] = useState(0);
-  const activePanel = panels[openIndex];
+ 
 
   return (
     <section className="border-b border-white/10 bg-[#030303] px-6 py-20 text-[#f4ede3] md:px-10 lg:px-16">

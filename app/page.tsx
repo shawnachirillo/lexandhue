@@ -126,7 +126,7 @@ export default function Home() {
   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(244,237,227,0.08),transparent_38%)]" />
 </div>
   <div className="section-frame mx-auto max-w-7xl">
-    <h2 className="font-editorial max-w-5xl text-5xl leading-[0.92] tracking-[-0.04em] md:text-7xl">
+  <h2 className="font-editorial max-w-5xl text-4xl leading-[0.95] tracking-[-0.04em] sm:text-5xl md:text-7xl">
       Growing businesses often reach a point where things no longer feel
       connected. <span className="text-white">Why is that?</span>
     </h2>
@@ -146,8 +146,9 @@ export default function Home() {
   onClick={() => {
     setActiveJourney(isActive ? null : index);
   }}
-  className="group relative flex w-full items-center justify-between py-7 text-left transition-colors duration-500"
+ className="group relative flex w-full items-center justify-between gap-6 py-6 text-left transition-colors duration-500 md:py-7"
 >
+  
   <span className="absolute left-0 right-0 top-0 h-px bg-white/15 transition-colors duration-500 group-hover:bg-[#d97a4a]" />
 
   <span className="absolute bottom-0 left-0 right-0 h-px bg-white/15 transition-colors duration-500 group-hover:bg-[#d97a4a]" />
@@ -156,9 +157,9 @@ export default function Home() {
     {item.label}
   </span>
 
-  <span className="relative z-10 font-editorial text-4xl leading-none text-white/60 transition-colors duration-500 group-hover:text-[#d97a4a]">
-    {isActive ? "—" : "+"}
-  </span>
+  <span className="relative z-10 shrink-0 font-editorial text-3xl leading-none text-white/60 transition-colors duration-500 group-hover:text-[#d97a4a] md:text-4xl">
+  {isActive ? "—" : "+"}
+</span>
 </button>
 
             <div
@@ -207,7 +208,7 @@ export default function Home() {
                         ))}
                       </div>
 
-                      <div className="mt-12 grid max-w-[560px] gap-4 md:grid-cols-3">
+                      <div className="mt-10 grid max-w-[560px] grid-cols-3 gap-3 sm:gap-4">
                         {item.images.map((image, imageIndex) => (
                           <Reveal
                             key={image.caption}
