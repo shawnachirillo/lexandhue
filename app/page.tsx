@@ -83,10 +83,48 @@ export default function Home() {
 
       <Hero activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
-     {/* JOURNEY INTRO */}
+    
 
 {/* JOURNEY INTRO */}
-<section className="bg-black px-6 py-24 text-white md:px-10 lg:px-16">
+<section
+  className="
+    relative
+    overflow-hidden
+    px-6
+    pb-32
+    pt-48
+    text-white
+    md:px-10
+    md:pt-56
+    lg:px-16
+  "
+ style={{
+  background: `
+    radial-gradient(
+      ellipse at -15% 115%,
+      rgba(42, 70, 49, 0.22) 0%,
+      rgba(42, 70, 49, 0.12) 22%,
+      rgba(42, 70, 49, 0.04) 42%,
+      transparent 72%
+    ),
+    linear-gradient(
+      180deg,
+      #090706 0%,
+      #031403 3%,
+      #050505 100%
+    )
+  `,
+}}
+>
+  
+<div className="pointer-events-none absolute inset-0 overflow-hidden">
+  
+</div>
+<div className="pointer-events-none absolute inset-0">
+  <div className="absolute right-0 top-0 h-[520px] w-[520px] rounded-full bg-[#d97a4a]/10 blur-[140px]" />
+  <div className="absolute left-[-10%] top-[25%] h-[420px] w-[420px] rounded-full bg-[#f4ede3]/5 blur-[130px]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(244,237,227,0.08),transparent_38%)]" />
+</div>
   <div className="section-frame mx-auto max-w-7xl">
     <h2 className="font-editorial max-w-5xl text-5xl leading-[0.92] tracking-[-0.04em] md:text-7xl">
       Growing businesses often reach a point where things no longer feel
@@ -103,32 +141,25 @@ export default function Home() {
             key={item.label}
             className="border-b border-white/20 last:border-b-0"
           >
-            <button
-              type="button"
-              onClick={() => {
-                setActiveJourney(isActive ? null : index);
+           <button
+  type="button"
+  onClick={() => {
+    setActiveJourney(isActive ? null : index);
+  }}
+  className="group relative flex w-full items-center justify-between py-7 text-left transition-colors duration-500"
+>
+  <span className="absolute left-0 right-0 top-0 h-px bg-white/15 transition-colors duration-500 group-hover:bg-[#d97a4a]" />
 
-                if (!isActive) {
-                  setTimeout(() => {
-                    document
-                      .getElementById(`journey-${index}`)
-                      ?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
-                  }, 150);
-                }
-              }}
-              className="flex w-full items-center justify-between py-7 text-left"
-            >
-              <span className="text-xs uppercase tracking-[0.3em] text-white md:text-sm">
-                {item.label}
-              </span>
+  <span className="absolute bottom-0 left-0 right-0 h-px bg-white/15 transition-colors duration-500 group-hover:bg-[#d97a4a]" />
 
-              <span className="font-editorial text-4xl leading-none text-white/60">
-                {isActive ? "—" : "+"}
-              </span>
-            </button>
+  <span className="relative z-10 text-xs uppercase tracking-[0.3em] text-white transition-colors duration-500 group-hover:text-[#d97a4a] md:text-sm">
+    {item.label}
+  </span>
+
+  <span className="relative z-10 font-editorial text-4xl leading-none text-white/60 transition-colors duration-500 group-hover:text-[#d97a4a]">
+    {isActive ? "—" : "+"}
+  </span>
+</button>
 
             <div
               className={`overflow-hidden transition-all duration-1100 ease-out ${
