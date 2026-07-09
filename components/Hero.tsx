@@ -35,7 +35,7 @@ export default function Hero({ activeIndex, setActiveIndex }: HeroProps) {
   const currentSlide = heroSlides[activeIndex];
 
   return (
-    <section className="border-b border-white/10 bg-#141414 px-6 py-10 text-[#f4ede3] md:px-10 lg:px-16">
+    <section className="border-b border-white/10 bg-[#141414] px-6 py-10 text-[#f4ede3] md:px-10 lg:px-16">
       <div className="section-frame">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] lg:gap-6">
           <div className="pt-6 lg:pt-10">

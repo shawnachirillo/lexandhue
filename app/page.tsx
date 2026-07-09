@@ -6,31 +6,70 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { caseStudies } from "@/data/site";
 import { useState } from "react";
+import Reveal from "@/components/Reveal";
+import FallingWord from "@/components/FallingWord";
+import Image from "next/image";
+
 
 const journeyItems = [
   {
     label: "The Problem",
     title: "What once felt good enough now creates friction.",
     word: ["DIS", "CONNECT"],
-    text: ["Businesses rarely struggle because they lack talent, expertise, or ambition. More often, growth creates a different problem. The website no longer reflects the quality of the work. The messaging has evolved in multiple directions. New services have been added without a clear structure. Marketing feels inconsistent because the foundation underneath it has become fragmented.", "", "What was once enough to get started becomes harder to scale. Decisions take longer. Opportunities are missed. Potential clients leave with questions instead of clarity."],
+    text: [
+      "Businesses rarely struggle because they lack talent, expertise, or ambition. More often, growth creates a different problem. The website no longer reflects the quality of the work. The messaging has evolved in multiple directions. New services have been added without a clear structure.",
+      "What was once enough to get started becomes harder to scale. Decisions take longer. Opportunities are missed. Potential clients leave with questions instead of clarity.",
+    ],
+    images: [
+      { src: "/problem_1.jpg", caption: "friction" },
+      { src: "/problem_2.jpg", caption: "gaps" },
+      { src: "/problem_3.jpg", caption: "drift" },
+    ],
   },
   {
     label: "The Shift",
     title: "A stronger business needs a clearer system.",
     word: ["RE", "ALIGN"],
-    text:["Growth doesn't require more noise. It requires alignment.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow.Marketing feels inconsistent because the foundation underneath it has become fragmented.", "The goal is not simply to look better. The goal is to create a foundation that supports better decisions, stronger positioning, and greater momentum."],
+    text: [
+      "Growth does not require more noise. It requires alignment.",
+      "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow.",
+      "The goal is not simply to look better. The goal is to create a foundation that supports better decisions, stronger positioning, and greater momentum.",
+    ],
+    images: [
+      { src: "/shift_1.jpg", caption: "clarity" },
+      { src: "/shift_2.jpg", caption: "direction" },
+      { src: "/shift_3.jpg", caption: "momentum" },
+    ],
   },
   {
     label: "How We Work",
     title: "Thoughtful work starts with understanding.",
     word: ["PROCESS"],
-    text: ["Every project begins with understanding.", "When strategy, messaging, visual identity, and digital experience support one another, the business becomes easier to understand, easier to trust, and easier to grow. Before visuals, before layouts, before development, we identify what matters most: who you're serving, what makes you different, and where friction is preventing growth.", "From there, we create the systems, messaging, and experiences needed to bring everything into alignment."],
+    text: [
+      "Every project begins with understanding.",
+      "Before visuals, before layouts, before development, we identify what matters most: who you're serving, what makes you different, and where friction is preventing growth.",
+      "From there, we create the systems, messaging, and experiences needed to bring everything into alignment.",
+    ],
+    images: [
+      { src: "/work_1.jpg", caption: "listen" },
+      { src: "/work_2.jpg", caption: "shape" },
+      { src: "/work_3.jpg", caption: "build" },
+    ],
   },
   {
     label: "Services",
     title: "Brand, website, and strategy support.",
     word: ["BUILD"],
-    text: ["Some businesses need strategic clarity. Others need a stronger identity. Others need a website that finally reflects the quality of the work being delivered.", "Our services are designed to solve the underlying problem and not just simply produce deliverables.", "Brand strategy, identity systems, websites, messaging, and creative direction all work together to create a more cohesive business presence."],
+    text: [
+      "Some businesses need strategic clarity. Others need a stronger identity. Others need a website that finally reflects the quality of the work being delivered.",
+      "Our services are designed to solve the underlying problem and not simply produce deliverables.",
+      "Brand strategy, identity systems, websites, messaging, and creative direction all work together to create a more cohesive business presence.",
+    ],
+    images: [
+      { src: "/service_1.jpg", caption: "brand" },
+      { src: "/service_2.jpg", caption: "strategy" },
+      { src: "/service_3.jpg", caption: "website" },
+    ],
   },
 ];
 
@@ -44,89 +83,134 @@ export default function Home() {
 
       <Hero activeIndex={activeIndex} setActiveIndex={setActiveIndex} />
 
-      {/* JOURNEY INTRO */}
-      <section className="bg-[#00000] px-6 py-24 text-[#fffff] md:px-10 lg:px-16">
-        <div className="section-frame mx-auto max-w-7xl">
-          <h2 className="font-editorial max-w-5xl text-5xl leading-[0.92] tracking-[-0.04em] md:text-7xl">
-            Growing businesses often reach a point where things no longer feel
-            connected. <span className="text-[#fffff]">Why is that?</span>
-          </h2>
+     {/* JOURNEY INTRO */}
 
-          <div className="mt-20 border-y border-[#fffff]/20">
-            {journeyItems.map((item, index) => {
-              const isActive = activeJourney === index;
+{/* JOURNEY INTRO */}
+<section className="bg-black px-6 py-24 text-white md:px-10 lg:px-16">
+  <div className="section-frame mx-auto max-w-7xl">
+    <h2 className="font-editorial max-w-5xl text-5xl leading-[0.92] tracking-[-0.04em] md:text-7xl">
+      Growing businesses often reach a point where things no longer feel
+      connected. <span className="text-white">Why is that?</span>
+    </h2>
 
-              return (
-                <div key={item.label} className="border-b border-[#fffff]/20 last:border-b-0">
-                  <button
-                    type="button"
-                    onClick={() => setActiveJourney(isActive ? null : index)}
-                    className="flex w-full items-center justify-between py-7 text-left"
-                  >
-                    <span className="text-xs uppercase tracking-[0.3em] text-[#fffff] md:text-sm">
-                      {item.label}
-                    </span>
+    <div className="mt-20 border-y border-white/20">
+      {journeyItems.map((item, index) => {
+        const isActive = activeJourney === index;
 
-                    <span className="font-editorial text-4xl leading-none text-[#fffff]/60">
-                      {isActive ? "—" : "+"}
-                    </span>
-                  </button>
+        return (
+          <div
+            id={`journey-${index}`}
+            key={item.label}
+            className="border-b border-white/20 last:border-b-0"
+          >
+            <button
+              type="button"
+              onClick={() => {
+                setActiveJourney(isActive ? null : index);
+
+                if (!isActive) {
+                  setTimeout(() => {
+                    document
+                      .getElementById(`journey-${index}`)
+                      ?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                  }, 150);
+                }
+              }}
+              className="flex w-full items-center justify-between py-7 text-left"
+            >
+              <span className="text-xs uppercase tracking-[0.3em] text-white md:text-sm">
+                {item.label}
+              </span>
+
+              <span className="font-editorial text-4xl leading-none text-white/60">
+                {isActive ? "—" : "+"}
+              </span>
+            </button>
+
+            <div
+              className={`overflow-hidden transition-all duration-1100 ease-out ${
+                isActive ? "max-h-[1100px] opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="grid gap-12 overflow-hidden bg-[#f4ede3] px-8 py-14 text-[#090706] md:grid-cols-[0.8fr_1.2fr] md:px-12 lg:px-16">
+                <div className="relative overflow-hidden">
+                  <p className="mb-8 text-xs uppercase tracking-[0.3em] text-[#d97a4a]">
+                    {item.label}
+                  </p>
 
                   <div
-                    className={`overflow-hidden transition-all duration-500 ease-out ${isActive ? "max-h-[700px] opacity-100" : "max-h-0 opacity-0"
-                      }`}
+                    className="
+                      font-editorial
+                      text-[5rem]
+                      leading-none
+                      tracking-[-0.06em]
+                      text-transparent
+                      [-webkit-text-stroke:1px_#00000036]
+                      md:text-[7rem]
+                      lg:text-[8rem]
+                    "
                   >
-                    <div className="grid gap-12 bg-[#f4ede3] px-0 py-16 text-[#fffff] md:grid-cols-[0.8fr_1.2fr]">
-                      <div>
-                        <p className="mb-8 text-xs uppercase tracking-[0.3em] text-[#fffff]">
-                          {item.label}
-                        </p>
+                    {isActive && <FallingWord words={item.word} />}
+                  </div>
+                </div>
 
-                        <div
-                          className="
-                  font-editorial
-                  pointer-events-none
-                  select-none
-                  text-[7rem]
-                  leading-none
-                  tracking-[-0.04em]
-                  text-transparent
-                  [-webkit-text-stroke:1px_#00000036]
-                "
-                        >
-                          {item.word.map((line) => (
-                            <span key={line} className="block">
-                              {line}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
+                <div>
+                  {isActive && (
+                    <>
+                      <Reveal delay={1.0}>
                         <h3 className="font-editorial max-w-3xl text-4xl leading-[1.02] tracking-[-0.04em] text-[#090706] md:text-6xl">
                           {item.title}
                         </h3>
+                      </Reveal>
 
-                       <div className="mt-6 space-y-6">
-  {item.text.map((paragraph, i) => (
-    <p
-      key={i}
-      className="text-base leading-10 text-[#090706]/70"
-    >
-      {paragraph}
-    </p>
-  ))}
-</div>
-</div>
-                    </div>
-                  </div>
+                      <div className="mt-8 space-y-5">
+                        {item.text.map((paragraph, i) => (
+                          <Reveal key={i} delay={1.45}>
+                            <p className="text-base leading-8 text-[#090706]/70">
+                              {paragraph}
+                            </p>
+                          </Reveal>
+                        ))}
+                      </div>
+
+                      <div className="mt-12 grid max-w-[560px] gap-4 md:grid-cols-3">
+                        {item.images.map((image, imageIndex) => (
+                          <Reveal
+                            key={image.caption}
+                            delay={0.6 + imageIndex * 0.12}
+                          >
+                            <figure className="group">
+                              <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#090706]/10">
+                                <Image
+                                  src={image.src}
+                                  alt={image.caption}
+                                  fill
+                                  sizes="160px"
+                                  className="object-cover transition duration-1100 group-hover:scale-105"
+                                />
+                              </div>
+
+                              <figcaption className="mt-3 text-xs uppercase tracking-[0.32em] text-[#d97a4a]">
+                                {image.caption}
+                              </figcaption>
+                            </figure>
+                          </Reveal>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
-              );
-            })}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-
+        );
+      })}
+    </div>
+  </div>
+</section>
       {/* SELECTED WORK */}
       <section className="bg-[#090706] px-6 py-24 text-[#f4ede3] md:px-10 lg:px-16">
         <div className="section-frame">
